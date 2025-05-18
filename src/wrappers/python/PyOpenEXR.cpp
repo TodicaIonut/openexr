@@ -2591,7 +2591,7 @@ PYBIND11_MODULE(OpenEXR, m)
                  B44A_COMPRESSION
                  DWAA_COMPRESSION
                  DWAB_COMPRESSION
-                 HT256_COMPRESSION
+                 HT256_COMPRESSION 
              )pbdoc")
         .def_readwrite("header", &PyPart::header,
              R"pbdoc(
