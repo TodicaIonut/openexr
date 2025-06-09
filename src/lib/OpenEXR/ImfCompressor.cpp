@@ -14,9 +14,11 @@
 #include "ImfCompressor.h"
 #include "ImfB44Compressor.h"
 #include "ImfDwaCompressor.h"
+#include "ImfHTCompressor.h"
 #include "ImfPizCompressor.h"
 #include "ImfPxr24Compressor.h"
 #include "ImfRleCompressor.h"
+//include "ImfZstdCompressor.h"
 #include "ImfZipCompressor.h"
 #include "ImfZip.h"
 
@@ -420,6 +422,19 @@ newTileCompressor (
                 static_cast<int> (numTileLines),
                 DwaCompressor::STATIC_HUFFMAN);
             break;
+
+        case HTJ2K_COMPRESSION:
+
+            ret = new HTCompressor (
+                hdr,
+                static_cast<int> (tileLineSize),
+                static_cast<int> (numTileLines),
+            break;
+
+        //case ZSTD_COMPRESSION:
+        //
+        //    ret = new ZstdCompressor (hdr, tileLineSize, numTileLines);
+        //    break;
 
         default: break;
     }
